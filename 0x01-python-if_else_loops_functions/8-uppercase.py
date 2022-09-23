@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 def uppercase(str):
-    str = str + "\n"
     x = len(str)
     for i in range(x):
         y = ord(str[i])
