@@ -1,3 +1,4 @@
 #!/usr/bin/python3
+txt = ""
 for i in range(97, 123):
-    print(chr(i))
+    print("{ch}".format(ch = chr(i))
