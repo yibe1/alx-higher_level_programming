@@ -6,4 +6,4 @@ def uppercase(str):
         if y >=65 and y < 91:
             print(str[i],end='')
         else:
-            print("{}".format(chr(ord(str[i])-32),end='')
+            print("{}".format(chr(ord(str[i])-32)),end='')
