@@ -12,7 +12,6 @@ listint_t *v = (listint_t*)malloc(sizeof(listint_t));
 listint_t *prevNode, *currentNode;
 currentNode = *head;
 
-int num;
 while(currentNode != NULL){
 
     if(currentNode->n > number){
