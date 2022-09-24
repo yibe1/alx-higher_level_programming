@@ -13,7 +13,7 @@ listint_t *v = (listint_t*)malloc(sizeof(listint_t));
     currentNode = *head;
     prevNode=NULL;
 
-    if(currentNode->next == NULL)
+    if(currentNode == NULL)
         return NULL;
 
     if(currentNode->n >= number)
