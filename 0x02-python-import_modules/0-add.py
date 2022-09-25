@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import add from add_0 as yibe
+import add_0 as yibe
 
 a = 1
 b = 2
