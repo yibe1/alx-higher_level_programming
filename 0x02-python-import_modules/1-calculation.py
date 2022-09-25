@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import calculator_1 as tk
+from calculator_1 as tk import add, sub, mul, div
 
 def main():
     a = 10
