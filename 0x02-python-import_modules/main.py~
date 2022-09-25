@@ -1,0 +1,6 @@
+import 1-calculation.py as y
+
+y.main()
+
+
+
