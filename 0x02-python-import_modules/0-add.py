@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import add from add_0 as yibe
+from add_0 import add as yibe
 
 if __name__ == '__main__':
     a = 1
