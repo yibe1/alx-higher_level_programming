@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-def add_tuple(tuple_a=(), tuple_b=()): 
-    a = 0
-    b = 0
+def add_tuple(tuple_a=(), tuple_b=()):
     n11 = 0
     n12 = 0
     n21 = 0
