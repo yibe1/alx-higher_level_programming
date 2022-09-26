@@ -4,7 +4,6 @@ def add_tuple(tuple_a=(), tuple_b=()):
     n12 = 0
     n21 = 0
     n22 = 0
-    
     if len(tuple_a) > 0:
         n11 = tuple_a[0]
     if len(tuple_a) > 1:
