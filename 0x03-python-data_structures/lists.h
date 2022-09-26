@@ -15,6 +15,14 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+/**
+ * struct mylist - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ * @prev: points to the prev node
+ *
+ * Description:  nnn
+ */
 typedef struct mylist
 {
    struct listb *prev;
