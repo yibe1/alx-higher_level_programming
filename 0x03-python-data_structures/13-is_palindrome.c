@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "lists.h"
 /**
  * is_palindrome-checks if a list is palindrom
  * @head: the head of the lis
