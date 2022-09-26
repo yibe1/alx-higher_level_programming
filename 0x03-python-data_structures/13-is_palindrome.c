@@ -34,7 +34,6 @@ int is_palindrome(listint_t **head)
         last = theList;
          temp = temp->next;
     }
-    hc = theHead;
     while(temp0 != NULL){
         if(last->n == temp0->n){
             last = last->prev;
