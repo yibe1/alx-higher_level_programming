@@ -7,5 +7,5 @@ def delete_at(my_list=[], idx=0):
         if i == idx:
             continue
         else:
-            new_list.append(my_list[i])
-    return new_list
+            del my_list[i]
+    return my_list
