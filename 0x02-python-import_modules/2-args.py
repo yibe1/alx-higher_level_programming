@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-if "__name__" == "main":
+if __name__ == "__main__":
     size = len(argv)
     if size == 1:
         print("{} argument:".format(i))
