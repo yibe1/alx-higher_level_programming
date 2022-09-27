@@ -1,52 +1,54 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 /**
- * is_palindrome-checks if a list is palindrom
- * @head: the head of the lis
- *
- * Return: 1 if palindrome and 0 otherwise
- *
+ * listlen_t - prints all elements of a listint_t list
+ * @h: pointer to head of list
+ * Return: number of nodes
  */
+size_t listlen_t(listint_t *h)
+{
+	const listint_t *current;
+	unsigned int n;
 
+	current = h;
+	n = 0;
+	while (current != NULL)
+	{
+		current = current->next;
+		n++;
+	}
+	return (n);
+}
+
+/**
+ * is_palindrome - wut
+ * @head: list
+ * Return: 1 | 0
+ */
 int is_palindrome(listint_t **head)
 {
-    listint_t *temp = *head, *temp0 = *head;
-    struct mylist *theList = NULL, *last = NULL, *theHead = NULL;
-    while (temp != NULL)
-    {
-      theList = (struct mylist *) malloc(sizeof(struct mylist));
-      theList->n = temp->n;
-      theList->next = NULL;
-      if (theHead == NULL)
+	int listlen = listlen_t(*head);
+	int *array = malloc(sizeof(int) * listlen);
+	int index; /* Used to populate data into array */
+	int begin, end;
+	listint_t *temp;
+
+	if (head == NULL || *head == NULL || array == NULL)
 	{
-	  theList->prev = NULL;
-	  theHead = theList;
-	  continue;
+		free(array);
+		return (1);
 	}
 
-      struct mylist *hc = theHead;
-      while (hc->next != NULL)
-	hc = hc->next;
-      hc->next = theList;
-      theList->prev = hc;
-      last = theList;
-      temp = temp->next;
-    }
-    while (temp0 != NULL)
-      {
-	if (last->n == temp0->n)
-	  {
-	    last = last->prev;
-	    temp0 = temp0->next;
-	    continue;
-	  }
-	else
-	  {
-	    return (0);
-	  }
-	last = last->prev;
-	temp0 = temp0->next;
-      }
-    return (1);
+	for (temp = *head, index = 0; temp != NULL; temp = temp->next, index++)
+		array[index] = temp->n;
+
+	for (begin = 0, end = listlen - 1; begin < listlen / 2; begin++, end--)
+	{
+		if (array[begin] != array[end])
+		{
+			free(array);
+			return (0); /* 0 if not a palindrome */
+		}
+	}
+	free(array);
+	return (1); /* It was a palindrome */
 }
