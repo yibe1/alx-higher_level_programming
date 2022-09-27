@@ -1,54 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
-/**
- * listlen_t - prints all elements of a listint_t list
- * @h: pointer to head of list
- * Return: number of nodes
- */
-size_t listlen_t(listint_t *h)
-{
-	const listint_t *current;
-	unsigned int n;
 
-	current = h;
-	n = 0;
-	while (current != NULL)
+/**
+ * reverse_list - reverses a listint_t linked list
+ * @head: a pointer to a pointer to a struct
+ *
+ * Return: a pointer to first node of reversed list
+ */
+listint_t *reverse_list(listint_t **head)
+{
+	listint_t *prev = NULL, *ahead = NULL;
+
+	while (*head)
 	{
-		current = current->next;
-		n++;
+		ahead = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = ahead;
 	}
-	return (n);
+	*head = prev;
+	return (*head);
 }
 
 /**
- * is_palindrome - wut
- * @head: list
- * Return: 1 | 0
+ * is_palindrome - check if listint_t linked list is a palindrome
+ * @head: a pointer to a pointer to a struct
+ *
+ * Return: 1 if palindrome, else 0
  */
 int is_palindrome(listint_t **head)
 {
-	int listlen = listlen_t(*head);
-	int *array = malloc(sizeof(int) * listlen);
-	int index; /* Used to populate data into array */
-	int begin, end;
-	listint_t *temp;
+	listint_t *slow = *head, *fast = *head, *tmp = NULL;
 
-	if (head == NULL || *head == NULL || array == NULL)
-	{
-		free(array);
+	if (!*head)
 		return (1);
-	}
-
-	for (temp = *head, index = 0; temp != NULL; temp = temp->next, index++)
-		array[index] = temp->n;
-
-	for (begin = 0, end = listlen - 1; begin < listlen / 2; begin++, end--)
+	while (fast->next && fast->next->next)
 	{
-		if (array[begin] != array[end])
-		{
-			free(array);
-			return (0); /* 0 if not a palindrome */
-		}
+		slow = slow->next;
+		fast = fast->next->next;
 	}
-	free(array);
-	return (1); /* It was a palindrome */
+	slow = reverse_list(&slow);
+	tmp = slow;
+	fast = *head;
+	while (slow && fast)
+	{
+		if (slow->n != fast->n)
+			return (0);
+		slow = slow->next;
+		fast = fast->next;
+	}
+	reverse_list(&tmp);
+	return (1);
 }
