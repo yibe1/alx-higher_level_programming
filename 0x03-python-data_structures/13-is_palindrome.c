@@ -21,28 +21,28 @@ int is_palindrome(listint_t **head)
         if(theHead == NULL)
         {
             theList->prev = NULL;
-            theHead = theList;
+            theHead = (listb*)theList;
             continue;
         }
        
-        hc = theHead;
-        while(hc->next!= NULL){
-            hc = hc->next;
+        hc = (listb*)theHead;
+        while(hc->next != NULL){
+	  hc = (listb*)hc->next;
         }
         hc -> next = theList;
-        theList ->prev = hc;
+        theList -> prev = hc;
         last = theList;
          temp = temp->next;
     }
     while(temp0 != NULL){
         if(last->n == temp0->n){
-            last = last->prev;
+            last = (listb*)last->prev;
             temp0 = temp0->next;
             continue;
         }else{
             return 0;
         }
-        last = last->prev;
+        last = (listb*)last->prev;
         temp0 = temp0->next;
     }
     return 1;
