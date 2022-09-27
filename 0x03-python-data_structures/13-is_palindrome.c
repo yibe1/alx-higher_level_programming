@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 /**
  * is_palindrome-checks if a list is palindrom
@@ -12,37 +12,36 @@
 int is_palindrome(listint_t **head)
 {
     listint_t *temp = *head, *temp0 = *head;
-    listb *theList, *last, *theHead = NULL, *hc;
+    struct mylist *theList=NULL, *last= NULL, *theHead= NULL;
     while(temp != NULL)
     {
-        theList = (listb*)malloc(sizeof(listb));
+      theList =(struct mylist*) malloc(sizeof(struct mylist));
         theList->n = temp->n;
         theList->next = NULL;
         if(theHead == NULL)
         {
             theList->prev = NULL;
-            theHead = (listb*)theList;
+            theHead = theList;
             continue;
         }
        
-        hc = (listb*)theHead;
-        while(hc->next != NULL){
-	  hc = (listb*)hc->next;
-        }
-        hc -> next = theList;
+        struct mylist* hc = (struct mylist*)theHead;
+        while(hc->next != NULL)
+	  hc = (struct mylist*)hc->next;
+        hc -> next = (struct mylist*)theList;
         theList -> prev = hc;
         last = theList;
          temp = temp->next;
     }
     while(temp0 != NULL){
         if(last->n == temp0->n){
-            last = (listb*)last->prev;
+            last = last->prev;
             temp0 = temp0->next;
             continue;
         }else{
             return 0;
         }
-        last = (listb*)last->prev;
+        last = last->prev;
         temp0 = temp0->next;
     }
     return 1;
