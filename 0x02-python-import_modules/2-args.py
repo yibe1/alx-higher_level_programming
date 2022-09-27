@@ -2,10 +2,10 @@
 from sys import argv
 if __name__ == "__main__":
     size = len(argv)
-    if size == 1:
+    if size == 2:
         print("{} argument:".format(1))
     else:
-        if size == 0:
+        if size < 2:
             print("{} arguments.".format(0))
         else:
             print("{} arguments:".format(size - 1))
