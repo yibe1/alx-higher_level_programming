@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+from sys import argv
+if len(argv) != 4:
+    print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+    return 1
+if argv[2] in ["+","-","*","/"]:
+    ...
+else:
+    print("Unknown operator. Available operators: +, -, * and /")
+    return 1
+a = int(argv[1]), b = int(argv[3])
+print({:d} {} {:d} = {:d}).format(a, argv[2], b, a + b))
