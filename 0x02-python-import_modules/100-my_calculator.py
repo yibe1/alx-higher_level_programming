@@ -5,19 +5,15 @@ if __name__ == "__main__":
     if len(argv) != 4:
         print(f"Usage: ./100-my_calculator.py <a> <operator> <b>")
         return 1
-    if argv[2] in ["+","-","*","/"]:
-        a = int(argv[1]), b = int(argv[3])
-        if argv[2] == "+":
-            print({:d} {} {:d} = {:d}).format(a, argv[2], b, add(a,b)))
-        elif argv[2] == "-":
-            print({:d} {} {:d} = {:d}).format(a, argv[2], b, sub(a,b)))
-        elif argv[3] == "*":
-            print({:d} {} {:d} = {:d}).format(a, argv[2], b, mul(a,b)))
-        elif argv[2] == "/":
-            print({:d} {} {:d} = {:d}).format(a, argv[2], b, div(a,b)))
-        else:
-            print("Unknown operator. Available operators: +, -, * and /")
-            return 1
-
-
-
+    a = int(argv[1]), b = int(argv[3])
+    if argv[2] == "+":
+        print("{:d} {} {:d} = {:d}".format(a, argv[2], b, add(a,b))
+    elif argv[2] == "-":
+        print("{:d} {} {:d} = {:d}".format(a, argv[2], b, sub(a,b))
+    elif argv[3] == "*":
+        print("{:d} {} {:d} = {:d}".format(a, argv[2], b, mul(a,b))
+    elif argv[2] == "/":
+        print("{:d} {} {:d} = {:d}".format(a, argv[2], b, div(a,b))
+    else:
+        print(f"Unknown operator. Available operators: +, -, * and /")
+        return 1
