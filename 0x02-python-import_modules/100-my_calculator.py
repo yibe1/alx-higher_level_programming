@@ -6,7 +6,7 @@ if __name__ == "__main__":
     a = int(argv[1])
     b = int(argv[3])
     if len(argv) != 4:
-        print(f"Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     if argv[2] == "+":
         print("{:d} {} {:d} = {:d}".format(a, argv[2], b, add(a,b)))
@@ -17,5 +17,5 @@ if __name__ == "__main__":
     elif argv[2] == "/":
         print("{:d} {} {:d} = {:d}".format(a, argv[2], b, div(a,b)))
     else:
-        print(f"Unknown operator. Available operators: +, -, * and /")
+        print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
